@@ -32,9 +32,8 @@ class ProgressBarDelegate(QStyledItemDelegate):
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         rect = option.rect
-        bar_height = 18
-        bar_y = rect.y() + (rect.height() - bar_height) // 2
-        bar_rect = rect.adjusted(6, bar_y - rect.y(), -6, rect.bottom() - bar_y - bar_height)
+        # 与文本同层居中：上下各留 5px 边距
+        bar_rect = rect.adjusted(8, 5, -8, -5)
 
         # 轨道
         painter.setPen(Qt.PenStyle.NoPen)
@@ -69,10 +68,7 @@ class ProgressBarDelegate(QStyledItemDelegate):
     def editorEvent(self, event, model, option, index):
         """点击进度条直接设置进度百分比。"""
         if event.type() == event.Type.MouseButtonPress:
-            rect = option.rect
-            bar_height = 18
-            bar_y = rect.y() + (rect.height() - bar_height) // 2
-            bar_rect = rect.adjusted(6, bar_y - rect.y(), -6, rect.bottom() - bar_y - bar_height)
+            bar_rect = option.rect.adjusted(8, 5, -8, -5)
             if bar_rect.contains(event.pos()):
                 click_x = event.pos().x() - bar_rect.x()
                 new_progress = int(click_x / bar_rect.width() * 100)
