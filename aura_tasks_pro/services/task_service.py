@@ -1,12 +1,13 @@
 from datetime import date
 from typing import Optional, List
 from ..models.task import Task
+from ..models.workspace import Workspace
 from ..utils.enums import TaskStatus, Priority
 from .repository import TaskRepository
 
 
 class TaskService:
-    """业务逻辑层：封装排序算法、递归进度计算和状态管理。"""
+    """业务逻辑层：排序算法、进度计算、状态管理、工作区管理。"""
 
     RISK_WEIGHTS = {"高": 5, "严重": 8, "紧急": 10, "critical": 10, "high": 5}
 
@@ -16,8 +17,27 @@ class TaskService:
     def close(self):
         self.repo.close()
 
-    def get_task_tree(self) -> List[Task]:
-        return self.repo.get_all_tasks()
+    # ─── Workspace ─────────────────────────────────────
+
+    def get_workspaces(self) -> List[Workspace]:
+        return self.repo.get_all_workspaces()
+
+    def create_workspace(self, name: str) -> int:
+        return self.repo.create_workspace(name)
+
+    def update_workspace(self, ws: Workspace):
+        self.repo.update_workspace(ws)
+
+    def delete_workspace(self, ws_id: int):
+        self.repo.delete_workspace(ws_id)
+
+    def reorder_workspaces(self, ordered_ids: List[int]):
+        self.repo.reorder_workspaces(ordered_ids)
+
+    # ─── Task (workspace-aware) ────────────────────────
+
+    def get_task_tree(self, workspace_id: Optional[int] = None) -> List[Task]:
+        return self.repo.get_all_tasks(workspace_id=workspace_id)
 
     def add_task(self, task: Task) -> int:
         return self.repo.create_task(task)
@@ -101,8 +121,8 @@ class TaskService:
                 result.extend(self._flatten_tasks(task.children, path))
         return result
 
-    def get_top3(self) -> List[dict]:
-        tasks = self.repo.get_all_tasks()
+    def get_top3(self, workspace_id: Optional[int] = None) -> List[dict]:
+        tasks = self.repo.get_all_tasks(workspace_id=workspace_id)
         flat = self._flatten_tasks(tasks)
         flat.sort(key=lambda x: x["score"], reverse=True)
         return flat[:3]

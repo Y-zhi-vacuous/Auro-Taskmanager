@@ -17,6 +17,7 @@ class Task:
     risk: str = ""
     remarks: str = ""
     order_index: int = 0
+    workspace_id: Optional[int] = None
     children: List['Task'] = field(default_factory=list)
 
     @property
