@@ -65,13 +65,14 @@ NavigationTreeWidget {{
     background: transparent;
 }}
 NavigationTreeWidget::item {{
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 5px 10px;
     color: {AppleTheme.TEXT_SECONDARY};
 }}
 NavigationTreeWidget::item:selected {{
     background: {AppleTheme.ACCENT_LIGHT};
     color: {AppleTheme.ACCENT};
+    font-weight: 600;
 }}
 NavigationTreeWidget::item:hover {{
     background: {AppleTheme.ACCENT_SOFT};
@@ -79,14 +80,14 @@ NavigationTreeWidget::item:hover {{
 
 QPushButton {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: {AppleTheme.RADIUS_BUTTON}px;
     padding: 6px 14px;
     font-size: {AppleTheme.FONT_SIZE_BODY}px;
     color: {AppleTheme.TEXT_PRIMARY};
 }}
 QPushButton:hover {{
-    background: #F8F9FB;
+    background: #F4FAF8;
     border-color: {AppleTheme.ACCENT};
 }}
 QPushButton:pressed {{
@@ -105,12 +106,12 @@ PrimaryPushButton:hover {{
     background: {AppleTheme.ACCENT_HOVER};
 }}
 PrimaryPushButton:pressed {{
-    background: #1D4ED8;
+    background: #0F766E;
 }}
 
 SearchLineEdit {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: {AppleTheme.RADIUS_INPUT}px;
     padding: 6px 12px;
     color: {AppleTheme.TEXT_PRIMARY};
@@ -122,7 +123,7 @@ SearchLineEdit:focus {{
 
 ComboBox {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: {AppleTheme.RADIUS_INPUT}px;
     padding: 4px 10px;
     color: {AppleTheme.TEXT_PRIMARY};
@@ -133,14 +134,14 @@ ComboBox:hover {{
 }}
 QComboBox QAbstractItemView {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     selection-background-color: {AppleTheme.ACCENT_LIGHT};
     color: {AppleTheme.TEXT_PRIMARY};
 }}
 
 QTreeWidget {{
     background: #FFFFFF;
-    alternate-background-color: #FAFBFC;
+    alternate-background-color: #F6FCFA;
     border: none;
     border-radius: {AppleTheme.RADIUS_CARD}px;
     outline: none;
@@ -149,9 +150,9 @@ QTreeWidget {{
     color: {AppleTheme.TEXT_PRIMARY};
 }}
 QTreeWidget::item {{
-    padding: 3px 2px;
-    border-radius: 3px;
-    border-bottom: 1px solid #F0F1F3;
+    padding: 4px 2px;
+    border-radius: 4px;
+    border-bottom: 1px solid #E8F2EF;
     min-height: 28px;
 }}
 QTreeWidget::item:selected {{
@@ -159,14 +160,14 @@ QTreeWidget::item:selected {{
     color: {AppleTheme.TEXT_PRIMARY};
 }}
 QTreeWidget::item:hover:!selected {{
-    background: #F8FAFD;
+    background: #F0FAF7;
 }}
 QTreeWidget::branch {{
     background: transparent;
 }}
 
 QHeaderView::section {{
-    background: #F8F9FB;
+    background: #F4FAF8;
     border: none;
     border-bottom: 2px solid {AppleTheme.ACCENT};
     padding: 10px 6px;
@@ -174,12 +175,11 @@ QHeaderView::section {{
     font-size: {AppleTheme.FONT_SIZE_SMALL}px;
     color: {AppleTheme.TEXT_SECONDARY};
     letter-spacing: 0.5px;
-    text-transform: uppercase;
 }}
 
 QMenu {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: {AppleTheme.RADIUS_INPUT}px;
     padding: 6px;
 }}
@@ -194,7 +194,7 @@ QMenu::item:selected {{
 }}
 QMenu::separator {{
     height: 1px;
-    background: #E0E2E6;
+    background: #CCDED9;
     margin: 4px 8px;
 }}
 
@@ -204,12 +204,12 @@ QScrollBar:vertical {{
     margin: 0;
 }}
 QScrollBar::handle:vertical {{
-    background: #C8CCD4;
+    background: #B8CFCB;
     border-radius: 3px;
     min-height: 30px;
 }}
 QScrollBar::handle:vertical:hover {{
-    background: #A0A5B0;
+    background: #8AAAA5;
 }}
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{
     height: 0;
@@ -220,7 +220,7 @@ QScrollBar:horizontal {{
     margin: 0;
 }}
 QScrollBar::handle:horizontal {{
-    background: #C8CCD4;
+    background: #B8CFCB;
     border-radius: 3px;
     min-width: 30px;
 }}
@@ -237,7 +237,7 @@ QMessageBox QLabel {{
 
 QDateEdit {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: 3px;
     padding: 1px 4px;
     font-size: {AppleTheme.FONT_SIZE_SMALL}px;
@@ -256,7 +256,7 @@ QDateEdit::drop-down {{
 
 QTreeWidget QComboBox {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: 3px;
     padding: 1px 4px;
     font-size: {AppleTheme.FONT_SIZE_SMALL}px;
@@ -279,7 +279,7 @@ QTreeWidget QComboBox::drop-down {{
 
 QTreeWidget QLineEdit {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: 3px;
     padding: 1px 4px;
     font-size: {AppleTheme.FONT_SIZE_SMALL}px;
@@ -294,7 +294,7 @@ QTreeWidget QLineEdit:focus {{
 
 QTreeWidget QDateEdit {{
     background: #FFFFFF;
-    border: 1px solid #E0E2E6;
+    border: 1px solid #CCDED9;
     border-radius: 3px;
     padding: 1px 4px;
     font-size: {AppleTheme.FONT_SIZE_SMALL}px;
@@ -424,7 +424,7 @@ class MainWindow(FluentWindow):
         sidebar_layout.addSpacing(4)
         sep = QFrame()
         sep.setFrameShape(QFrame.Shape.HLine)
-        sep.setStyleSheet("background: #E0E2E6; max-height: 1px; border: none;")
+        sep.setStyleSheet("background: #CCDED9; max-height: 1px; border: none;")
         sidebar_layout.addWidget(sep)
         sidebar_layout.addSpacing(4)
 
